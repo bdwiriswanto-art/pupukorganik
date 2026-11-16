@@ -1,0 +1,6 @@
+{
+  "name": "Nusantara Humus - Pupuk Padat Organik & Konsultasi Tanaman",
+  "description": "Platform e-commerce pupuk padat organik premium dengan sistem pembayaran terintegrasi (QRIS, VA, E-Wallet) dan fitur konsultasi dokter tanaman AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
