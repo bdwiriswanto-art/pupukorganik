@@ -46,14 +46,20 @@ interface OrderRecord {
 
 const orders = new Map<string, OrderRecord>();
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY || "",
-  httpOptions: {
-    headers: {
-      "User-Agent": "aistudio-build",
+function getAIClient() {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY belum diatur.");
+  }
+  return new GoogleGenAI({
+    apiKey,
+    httpOptions: {
+      headers: {
+        "User-Agent": "aistudio-build",
+      },
     },
-  },
-});
+  });
+}
 
 // API: Plant Consultation with Gemini AI
 app.post("/api/gemini/consultation", async (req, res) => {
@@ -84,6 +90,7 @@ Gunakan format poin-poin singkat agar mudah dibaca.`;
 - Kondisi Tanah: ${soilType || "Tanah kebun / pot biasa"}
 - Skala: ${landArea || "Kebun rumah"}`;
 
+    const ai = getAIClient();
     let response;
     try {
       response = await ai.models.generateContent({
@@ -136,6 +143,7 @@ app.post("/api/gemini/chat", async (req, res) => {
   try {
     const { message } = req.body;
 
+    const ai = getAIClient();
     const chat = ai.chats.create({
       model: "gemini-3.8-flash",
       config: {

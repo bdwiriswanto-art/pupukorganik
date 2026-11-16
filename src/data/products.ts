@@ -1,4 +1,5 @@
 import { Product } from '../types';
+import maxMoreImage from '../assets/images/max_more_organic_fertilizer_1794819707936.jpg';
 
 export const MAX_MORE_PRODUCT: Product = {
   id: 'max-more-organic-solid',
@@ -6,7 +7,7 @@ export const MAX_MORE_PRODUCT: Product = {
   categoryLabel: 'Solusi Nutrisi Organik untuk Tanah Lebih Subur',
   shortDesc:
     'Membantu memperbaiki kualitas tanah, mendukung pertumbuhan tanaman, dan menjaga kesuburan tanah secara berkelanjutan. Dapat diaplikasikan langsung secara padat (tabur) maupun dilarutkan menjadi pupuk cair (kocor).',
-  image: '/src/assets/images/max_more_organic_fertilizer_1794819707936.jpg',
+  image: maxMoreImage,
   rating: 4.9,
   reviewsCount: 840,
   cnRatio: '< 14',
